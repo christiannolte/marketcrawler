@@ -47,12 +47,12 @@ def send_dapnet(message):
         print("Problems reading environment variable 'callsign' maybe its not set")
         os.exit()
     try:
-     url = 'http://www.hampager.de:8080/calls'
+     dapneturl = 'http://www.hampager.de:8080/calls'
      headers = {'Content-type': 'application/json'}
 
      data = '{ "text": "'+message.replace("[","(").replace("]",")")+'", "callSignNames": ["'+callsign+'"], "transmitterGroupNames": ["'+transmitterGroupName+'"], "emergency": false }'
      data = data.encode('utf-8')
-     response = requests.post(url, headers=headers, auth=(callsign, get_dapnet()), data=data)
+     response = requests.post(dapneturl, headers=headers, auth=(callsign, get_dapnet()), data=data)
      print(response)
     except:
      print("Dapnet did not work")
