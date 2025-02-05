@@ -16,7 +16,7 @@ def get_telegram_token():
         return(telegramToken)
     except:
         print("Problems reading environment variable 'telegramToken' maybe its not set")
-        exit()
+        os._exit()
 
 
 def get_telegram_channel():
