@@ -16,7 +16,7 @@ def get_telegram_token():
         return(telegramToken)
     except:
         print("Problems reading environment variable 'telegramToken' maybe its not set")
-        os._exit()
+        return("")
 
 
 def get_telegram_channel():
@@ -84,11 +84,42 @@ def post_via_telegram(meldung):
  
 print(os.getcwd())
 print(os.listdir())
+print("checking Environment variables")
 try:
+    print("checking blockurl")
     blogurl=os.environ["blogurl"]
 except:
     print("Problems reading environment variable 'blogurl' maybe its not set")
     exit()
+
+try:
+    print("checking telegramToken")
+    os.environ["telegramToken"]
+except:
+    print("Problems reading environment variable 'telegramToken' maybe its not set")
+    exit()
+
+try:
+    print("checking telegramChannel")
+    os.environ["telegramChannel"]
+except:
+    print("Problems reading environment variable 'telegramChannel' maybe its not set")
+    exit()
+
+try:
+    print("checking callsign")
+    os.environ["callsign"]
+except:
+    print("Problems reading environment variable 'callsign' maybe its not set")
+    exit()
+
+try:
+    print("checking dapnet")
+    os.environ["dapnet"]
+except:
+    print("Problems reading environment variable 'dapnet' maybe its not set")
+    exit()
+
 get_blog_content(blogurl)
 neueste_artikel=get_blog_content(blogurl)
 print("Bot wurde neu gestartet")
