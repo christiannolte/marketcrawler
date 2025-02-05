@@ -18,4 +18,4 @@ jobs:
       run: |
         #docker build . --file Dockerfile --tag my-image-name:$(date +%s)
         docker build . --file Dockerfile --tag my-image-name:latest
-        docker run my-image-name:latest -e blogurl="http://www.google.de"
+        docker run -e blogurl="http://www.google.de" my-image-name:latest 
