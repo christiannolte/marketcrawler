@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import time
 import os
+import sys
 
 artikel=[]                                                                       
 
@@ -15,7 +16,7 @@ def get_telegram_token():
         return(telegramToken)
     except:
         print("Problems reading environment variable 'telegramToken' maybe its not set")
-        os.exit()
+        sys.exit()
 
 
 def get_telegram_channel():
@@ -24,14 +25,14 @@ def get_telegram_channel():
         return(telegramChannel)
     except:
         print("Problems reading environment variable 'telegramChannel' maybe its not set")
-        os.exit()
+        sys.exit()
 
 def get_dapnet():
     try:
         dapnet=os.environ["dapnet"]
     except:
         print("Problems reading environment variable 'dapnet' maybe its not set")
-        os.exit()
+        sys.exit()
     return(dapnet)
                                                                                  
                                                                                  
@@ -40,12 +41,12 @@ def send_dapnet(message):
         transmitterGroupName=os.environ["transmitterGroupName"]
     except:
         print("Problems reading environment variable 'transmitterGroupname' maybe its not set")
-        os.exit()
+        sys.exit()
     try:
         callsign=os.environ["callsign"]
     except:
         print("Problems reading environment variable 'callsign' maybe its not set")
-        os.exit()
+        sys.exit()
     try:
      dapneturl = 'http://www.hampager.de:8080/calls'
      headers = {'Content-type': 'application/json'}
@@ -87,7 +88,7 @@ try:
     blogurl=os.environ["blogurl"]
 except:
     print("Problems reading environment variable 'blogurl' maybe its not set")
-    os.exit()
+    sys.exit()
 get_blog_content(blogurl)
 neueste_artikel=get_blog_content(blogurl)
 print("Bot wurde neu gestartet")
