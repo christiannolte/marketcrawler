@@ -20,6 +20,12 @@ jobs:
     - name: Show the Docker image
       run: |
         docker images
+    - name: Login on Dockerhub
+      run: |
+        docker login -u christiannolte -p ${{ secrets.DOCKER_HUB_TOKEN }}
     - name: Push to Dockerhub
       run: |
         docker push christiannolte/marketcrawler:latest
+    - name: Logout from Dockerhub
+      run: |
+        docker logout
