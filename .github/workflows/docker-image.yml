@@ -22,4 +22,4 @@ jobs:
         docker images
     - name: Push to Dockerhub
       run: |
-        echo "TODO PUSH"
+        docker push christiannolte/marketcrawler:latest
