@@ -84,41 +84,47 @@ def post_via_telegram(meldung):
  
 print(os.getcwd())
 print(os.listdir())
+errcnt=0
 print("checking Environment variables")
 try:
     print("checking blockurl")
     blogurl=os.environ["blogurl"]
 except:
     print("Problems reading environment variable 'blogurl' maybe its not set")
-    exit()
+    errcnt+=1
 
 try:
     print("checking telegramToken")
     os.environ["telegramToken"]
 except:
     print("Problems reading environment variable 'telegramToken' maybe its not set")
-    exit()
+    errcnt+=1
 
 try:
     print("checking telegramChannel")
     os.environ["telegramChannel"]
 except:
     print("Problems reading environment variable 'telegramChannel' maybe its not set")
-    exit()
+    errcnt+=1
 
 try:
     print("checking callsign")
     os.environ["callsign"]
 except:
     print("Problems reading environment variable 'callsign' maybe its not set")
-    exit()
+    errcnt+=1
 
 try:
     print("checking dapnet")
     os.environ["dapnet"]
 except:
     print("Problems reading environment variable 'dapnet' maybe its not set")
-    exit()
+    errcnt+=1
+
+if errcnt>0:
+    print("Environment not ok")
+    exit(-1)
+
 
 get_blog_content(blogurl)
 neueste_artikel=get_blog_content(blogurl)
