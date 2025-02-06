@@ -21,7 +21,7 @@ spec:
       containers:
         - name: marketcrawler
           image: {{ .Values.marketcrawlerimage }}
-          imagePullPolicy: Always
+          imagePullPolicy: IfNotPresent
           env:
             - name: blogurl
               value: {{ .Values.blogurl }}
