@@ -83,8 +83,8 @@ def post_via_telegram(meldung):
 
  
 print("Start of Marketcrawler")
-#print(os.getcwd())
-#print(os.listdir())
+print(os.getcwd())
+print(os.listdir())
 errcnt=0
 print("checking Environment variables")
 try:
