@@ -1,10 +1,11 @@
 import requests
 from bs4 import BeautifulSoup
+import signal
 import time
 import os
 import sys
 
-artikel=[]                                                                       
+artikel=[]     
 
 # gibt html code der gewünschten url zurück
 def get_url_content(url):
@@ -82,8 +83,15 @@ def post_via_telegram(meldung):
   except:
    print("Telegram did not work")
 
+def shutdown(signum, frame):
+    print('Caught SIGTERM, shutting down')
+    # Finish any outstanding requests, then...
+    post_via_telegram("Bot wurde auf "+environmentname+" wird beendet")
+    exit(0)
+
  
 print("Start of Marketcrawler")
+signal.signal(signal.SIGTERM, shutdown)
 errcnt=0
 print("checking Environment variables")
 try:
