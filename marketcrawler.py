@@ -82,13 +82,14 @@ def post_via_telegram(meldung):
    print("Telegram did not work")
 
  
-print(os.getcwd())
-print(os.listdir())
+#print(os.getcwd())
+#print(os.listdir())
 errcnt=0
 print("checking Environment variables")
 try:
-    print("checking blockurl")
+    print("checking blogurl")
     blogurl=os.environ["blogurl"]
+    print(blogurl)
 except:
     print("Problems reading environment variable 'blogurl' maybe its not set")
     errcnt+=1
