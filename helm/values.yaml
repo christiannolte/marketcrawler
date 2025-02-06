@@ -6,3 +6,4 @@ telegram:
 dapnet:
   dapnetID: DAPNETID
   transmitterGroupName: dl-ni
+  callsign: YOUR_HAM_RADIO_CALLSIGN

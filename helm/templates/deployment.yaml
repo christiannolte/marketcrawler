@@ -33,3 +33,5 @@ spec:
               value: {{ .Values.dapnet.dapnetID }}
             - name: transmitterGroupName
               value: {{ .Values.dapnet.transmitterGroupName }}
+            - name: callsign
+              value: {{ .Values.dapnet.callsign }}
