@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: marketcrawler
+  labels:
+    app: marketcrawler
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: marketcrawler
+  template:
+    metadata:
+      labels:
+        app: marketcrawler
+    spec:
+      securityContext:
+        fsGroup: 1000
+        fsGroupChangePolicy: "Always" 
+      restartPolicy: Always
+      containers:
+        - name: marketcrawler
+          image: {{ .Values.marketcrawlerimage }}
+          imagePullPolicy: IfNotPresent
+          env:
+            - name: blogurl
+              value {{ .Values.blogurl }}
+
