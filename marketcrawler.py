@@ -84,8 +84,6 @@ def post_via_telegram(meldung):
 
  
 print("Start of Marketcrawler")
-print(os.getcwd())
-print(os.listdir())
 errcnt=0
 print("checking Environment variables")
 try:
@@ -125,10 +123,17 @@ except:
     errcnt+=1
 
 try:
-    print("checking dapnet")
-    os.environ["transmitterGroupName"]
+    print("checking envname")
+    environmentname=os.environ["envname"]
 except:
-    print("Problems reading environment variable 'transmitterGroupName' maybe its not set")
+    print("Problems reading environment variable 'envname' maybe its not set")
+    errcnt+=1
+
+try:
+    print("checking period")
+    wartezeit=int(os.environ["period"])
+except:
+    print("Problems reading environment variable 'period' maybe its not set")
     errcnt+=1
 
 if errcnt>0:
@@ -139,8 +144,8 @@ if errcnt>0:
 get_blog_content(blogurl)
 neueste_artikel=get_blog_content(blogurl)
 print("Bot wurde neu gestartet")
-post_via_telegram("Bot wurde gestartet")
-send_dapnet("Bot wurde gestartet")                                               
+post_via_telegram("Bot wurde auf "+environmentname+" gestartet")
+send_dapnet("Bot wurde auf "+environmentname+" gestartet")                                               
 artikel=neueste_artikel
 time.sleep(20)
 while 1:
@@ -158,8 +163,8 @@ while 1:
         else:
             print(ding+"ist neu")
             #senden
-            post_via_telegram("Neuer Eintrag im Markt: " + ding)
-            send_dapnet("Neuer Eintrag im Markt: " + ding)
+            post_via_telegram("Neuer Eintrag im Markt: " + ding +" von ("+environmentname+")")
+            send_dapnet("Neuer Eintrag im Markt: " + ding +" von ("+environmentname+")")
             artikel.append(ding)
-    time.sleep(300)                          
+    time.sleep(wartezeit)                          
 
