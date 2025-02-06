@@ -122,6 +122,13 @@ except:
     print("Problems reading environment variable 'dapnet' maybe its not set")
     errcnt+=1
 
+try:
+    print("checking dapnet")
+    os.environ["transmitterGroupName"]
+except:
+    print("Problems reading environment variable 'transmitterGroupName' maybe its not set")
+    errcnt+=1
+
 if errcnt>0:
     print("Environment not ok")
     exit(-1)

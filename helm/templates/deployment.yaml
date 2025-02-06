@@ -25,3 +25,11 @@ spec:
           env:
             - name: blogurl
               value: {{ .Values.blogurl }}
+            - name: telegramToken
+              value: {{ .Values.telegram.telegramToken }}
+            - name: telegramChannel
+              value: {{ .Values.telegram.TelegramChannel }}
+            - name: dapnet
+              value: {{ .Values.dapnet.dapnetID }}
+            - name: transmitterGroupName
+              value: {{ .Values.dapnet.transmitterGroupName }}

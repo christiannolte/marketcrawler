@@ -1,2 +1,8 @@
 marketcrawlerimage: christiannolte/newmarketcrawler:latest
 blogurl: "https://www.mikrocontroller.net/forum/markt"
+telegram:
+  telegramToken: TELEGRAMTOKEN
+  telegramChannel: TELEGRAMCHANNEL
+dapnet:
+  dapnetID: DAPNETID
+  transmitterGroupName: dl-ni
