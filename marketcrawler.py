@@ -82,6 +82,7 @@ def post_via_telegram(meldung):
    print("Telegram did not work")
 
  
+print("Start of Marketcrawler")
 #print(os.getcwd())
 #print(os.listdir())
 errcnt=0
