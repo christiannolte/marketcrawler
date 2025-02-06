@@ -77,6 +77,7 @@ def get_blog_content(url):
 def post_via_telegram(meldung):
   try:
    telegramurl = "https://api.telegram.org/bot"+get_telegram_token()+"/sendMessage?chat_ilsd="+get_telegram_channel()+"&text="+meldung
+   print(telegramurl)
    print(requests.get(telegramurl).json()) # this sends the message
   except:
    print("Telegram did not work")
