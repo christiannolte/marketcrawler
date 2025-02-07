@@ -144,6 +144,13 @@ except:
     print("Problems reading environment variable 'period' maybe its not set")
     errcnt+=1
 
+try:
+    print("checking errorwaittime")
+    errorwaittime=int(os.environ["errorwaittime"])
+except:
+    print("Problems reading environment variable 'errorwaittime' maybe its not set")
+    errcnt+=1
+
 if errcnt>0:
     print("Environment not ok")
     exit(-1)
@@ -162,7 +169,7 @@ while 1:
     except:
       neueste_artikel=[]
       post_via_telegram("ZWANGSPAUSE ANFANG")
-      time.sleep(900)
+      time.sleep(errorwaittime)
       post_via_telegram("ZWANGSPAUSE ENDE")
     for ding in neueste_artikel:
         if ding in artikel:
