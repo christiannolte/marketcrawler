@@ -86,7 +86,7 @@ def post_via_telegram(meldung):
 def shutdown(signum, frame):
     print('Caught SIGTERM, shutting down')
     # Finish any outstanding requests, then...
-    post_via_telegram("Bot wurde auf "+environmentname+" wird beendet")
+    post_via_telegram("Bot auf "+environmentname+" wird beendet")
     exit(0)
 
  
