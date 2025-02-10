@@ -22,7 +22,7 @@ jobs:
         docker images
     - name: Login on Dockerhub
       run: |
-        docker login -u christiannolte -p ${{ secrets.DOCKER_HUB_TOKEN }}
+        echo -n ${{ secrets.DOCKER_HUB_TOKEN }} | docker login -u christiannolte --password-stdin 
     - name: Push to Dockerhub
       run: |
         docker push christiannolte/newmarketcrawler:latest
