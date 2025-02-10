@@ -7,10 +7,6 @@ import sys
 
 artikel=[]     
 
-# gibt html code der gewünschten url zurück
-def get_url_content(url):
-    return requests.get(url).text
-
 def get_telegram_token():
     try:
         telegramToken=os.environ["telegramToken"]
@@ -94,14 +90,7 @@ print("Start of Marketcrawler")
 signal.signal(signal.SIGTERM, shutdown)
 errcnt=0
 print("checking Environment variables")
-try:
-    print("checking blogurl")
-    blogurl=os.environ["blogurl"]
-    print(blogurl)
-except:
-    print("Problems reading environment variable 'blogurl' maybe its not set")
-    errcnt+=1
-
+blogurl="https://www.mikrocontroller.net/forum/markt"
 try:
     print("checking telegramToken")
     os.environ["telegramToken"]
