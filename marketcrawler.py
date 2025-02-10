@@ -7,6 +7,9 @@ import sys
 
 artikel=[]     
 
+def get_url_content(url):
+    return requests.get(url).text
+
 def get_telegram_token():
     try:
         telegramToken=os.environ["telegramToken"]
