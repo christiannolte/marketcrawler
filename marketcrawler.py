@@ -57,7 +57,7 @@ def send_dapnet(message):
      print(response)
     except:
      print("Dapnet did not work")
-     post_via_telegram("Dapnet did not work")
+     post_via_telegram("Dapnet did not work "+environmentname)
 
 def get_blog_content(url):
     print("++++++++++++++++++++++++++++++++++++++++++++++++++++++")
