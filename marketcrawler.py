@@ -170,8 +170,8 @@ while 1:
         else:
             print(ding+"ist neu")
             #senden
-            post_via_telegram("Neuer Eintrag im Markt: " + ding +" von ("+environmentname+")")
-            send_dapnet("Neuer Eintrag im Markt: " + ding +" von ("+environmentname+")")
+            post_via_telegram("Neuer Eintrag im Markt: " + ding +" ("+environmentname+")")
+            send_dapnet("Neuer Eintrag im Markt: " + ding +" ("+environmentname+")")
             artikel.append(ding)
     time.sleep(wartezeit)                          
 
