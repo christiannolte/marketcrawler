@@ -8,4 +8,4 @@ soupsieve==2.5
 urllib3==2.6.0                                                                   
 wheel==0.46.2
 urllib3==2.6.3                                                                   
-wheel==0.43.0
+wheel==0.46.2
